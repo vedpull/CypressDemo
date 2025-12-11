@@ -17,27 +17,20 @@ describe('Login Testleri', ()=>{
 
     it ('Başarılı Giriş', ()=>{
 
-        LoginPage.typeUsername(userData.validUser.username)
-        LoginPage.typePassword(userData.validUser.password)
-        LoginPage.clickLogin()
+     cy.login(userData.validUser.username, userData.validUser.password)
 
         cy.url().should('include', '/inventory.html')
     })
 
     it ('Hatalı Giriş', ()=>{
-        LoginPage.typeUsername(userData.invalidUser.username)
-        LoginPage.typePassword(userData.invalidUser.password)
-        LoginPage.clickLogin()
+        cy.login(userData.invalidUser.username, userData.invalidUser.password)
 
         LoginPage.errorMessage.should('have.text', 'Epic sadface: Username and password do not match any user in this service')
     })
 
     it ('Kilitli Kullanıcı Girişi', ()=>{
-        LoginPage.typeUsername(userData.lockedUser.username)
-        LoginPage.typePassword(userData.lockedUser.password)
-        LoginPage.clickLogin()
-
+        cy.login(userData.lockedUser.username, userData.lockedUser.password)
         LoginPage.errorMessage.should('have.text', 'Epic sadface: Sorry, this user has been locked out.')
     })
-    
+
 })
