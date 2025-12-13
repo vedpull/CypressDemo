@@ -1,0 +1,27 @@
+# Genellikle her projede göz ardı edilmesi gereken dosyalar/klasörler
+
+# 1. DEPENDENCIES (Bağımlılıklar)
+# node_modules klasörü devasa boyutlardadir ve sadece "npm install" ile tekrar yaratılabilir.
+node_modules
+/dist
+/build
+npm-debug.log
+yarn-error.log
+
+# 2. CYPRESS VE TEST OTOMASYONU ÖZELİ
+# Bu dosyalar her test kosumundan sonra olusur ve repo'ya ait degildir.
+cypress/videos
+cypress/screenshots
+cypress/results 
+mochawesome-report # Eger raporlama kütüphanesi kullanıyorsan (ILERI SEVIYE)
+
+# 3. YAPILANDIRMA VE KIŞISEL AYARLAR
+# Bu dosyalar kullanıcının kendi bilgisayarına özeldir (örneğin VS Code ayarları veya ortam değişkenleri).
+.env 
+.env.local
+.vscode/
+
+# 4. İŞLETİM SİSTEMİ ÖZEL DOSYALARI
+# Mac OS'ta veya Windows'ta oluşan gizli çöp dosyalarıdır.
+.DS_Store
+Thumbs.db
