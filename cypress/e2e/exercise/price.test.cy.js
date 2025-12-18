@@ -30,11 +30,7 @@ describe('Fiyat Hesaplamalar', ()=>{
             const price1 = parseFloat(this.price1.replace('$', ''))
             const price2 = parseFloat(this.price2.replace('$', ''))
 
-            if(price1<price2){
-                cy.log('sıralama doğru')
-            }else{
-                cy.log('sıralama yanlış')
-            }
+            expect(price1).to.be.lte(price2)
         })
     })
 
@@ -68,13 +64,9 @@ describe('Fiyat Hesaplamalar', ()=>{
     
                 expect(beklenenToplam).to.equal(ekrandakFiyat)
             })
+
+            cy.get('#finish').click()
         })
 
-
-
-
     })
-
-
-
 })

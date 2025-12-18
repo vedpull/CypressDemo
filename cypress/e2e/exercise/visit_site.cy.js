@@ -14,7 +14,5 @@ it('Site ziyareti', ()=>{
         expect(cleanedText).to.equal('Hello World!')
         cy.log('Test başarılı, metin doğru')
     })
-
-    
 })
 })
